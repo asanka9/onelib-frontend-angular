@@ -89,14 +89,7 @@ export class HomeComponent implements OnInit {
     resp.subscribe(
       (data)=>{
         console.log('success create external user');
-        console.log(data);
-        let resp1 =  this.service.loginUser(data.id,data.password);
-        resp1.subscribe(
-          (data)=>{this.name(data);
-            console.log('SUSSSSSSSSSSSSSSSSSSSUUUUUUUUUU');
-          }
-          );
-
+        this.showexCreate = false;    
       },
       (error)=>{
 

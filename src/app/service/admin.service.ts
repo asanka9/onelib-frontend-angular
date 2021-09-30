@@ -9,8 +9,10 @@ export class AdminService {
   
   constructor(private http:HttpClient) { }
 
+  private API_URL = "http://localhost:8080";
+
   public getLibraies(){
-    return this.http.get("http://localhost:8080/admin/getLibrary");
+    return this.http.get(this.API_URL + "/admin/getLibrary");
   }
 
 

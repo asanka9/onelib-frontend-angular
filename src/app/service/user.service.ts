@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  private API_URL = "http://localhost:8080";
 
   
   headers : any;
@@ -15,24 +16,24 @@ export class UserService {
    }
 
   public addLibrary(userId: any,userPassword: any,model: any): Observable<any>{
-    return this.http.post("http://localhost:8080/user/addLibraries/" + userId + "/" + userPassword, model);
+    return this.http.post(this.API_URL + "/user/addLibraries/" + userId + "/" + userPassword, model);
   }
 
   public getListOfLibraries(libs: any): Observable<any>{
-    return this.http.get("http://localhost:8080/user/returnLibs/"+libs);
+    return this.http.get(this.API_URL + "/user/returnLibs/"+libs);
   }
 
   public returnAllBooks(model: any): Observable<any>{
-    return this.http.post("http://localhost:8080/user/returnOrderBooks",model);
+    return this.http.post(this.API_URL + "/user/returnOrderBooks",model);
   }
 
   //{userID}/{deleteLid}/{lids}/{uids}
   public deleteLibrary(userId: any,deletedId: any,lids: any,uids: any) :Observable<any>{
-    return this.http.delete("http://localhost:8080/mobile/deleteLibrary/"+userId+"/"+deletedId+"/"+lids+"/"+uids);
+    return this.http.delete(this.API_URL + "/mobile/deleteLibrary/"+userId+"/"+deletedId+"/"+lids+"/"+uids);
   }
 
   public returnUserDetails(userId: any):Observable<any>{
-    return this.http.get("http://localhost:8080/user/getUser/"+userId);
+    return this.http.get(this.API_URL + "/user/getUser/"+userId);
   }
 
 

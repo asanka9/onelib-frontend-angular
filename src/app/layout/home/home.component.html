@@ -4,9 +4,8 @@
             <li class="nav-brand"><a href="https://github.com/asanka9/HTML-CSS-JS-Full-Responsive-Web/">One Lib</a></li>
             <div style="float: right;">
                 <li class="nav-item"><a href="#home">Home</a></li>
-                <li class="nav-item"><a href="#sizechart">Size Chart</a></li>
-                <li class="nav-item"><a href="#ourteam">Our team</a></li>
-                <li class="nav-item" style="margin-right: 20px;"><a href="#contactus">Contact Us</a></li>
+                <li class="nav-item"><a href="#createaccount">Create Account</a></li>
+                <li class="nav-item"  style="margin-right: 20px;"><a href="#addlibrary">Add Library</a></li>
             </div>
         </ul>
     </nav>
@@ -22,95 +21,323 @@
                     <div class="col-6">
                         <div class="home-images">
                             <div class="w3-content w3-section">
-                                <img class="mySlides" src="https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/HOW-DO-YOU-MANAGE-A-LIBRARY-min.png" width="100%">
-     
+                                <img class="mySlides"
+                                    src="https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/HOW-DO-YOU-MANAGE-A-LIBRARY-min.png"
+                                    width="100%">
+
                             </div>
 
                         </div>
                     </div>
                     <div class="col-6" style="color: white; padding-left: 3%;">
                         <div class="home-desc" style="margin-top: 20px;">
-                            <div class="home-subhead">
-                                <strong>Sneakers Store</strong> Sale !!!
+
+                            <div style="margin-top: 30px;">
+                                <form action="/action_page.php" class="container" #loginForm ngForm novalidate>
+                                    <h1>Login</h1>
+
+                                    <label for="email">User id</label>
+                                    <input class="ia" #emailController="ngModel" [(ngModel)]="user_email" type="text"
+                                        placeholder="User Id" name="email" required>
+
+                                    <label for="psw">User password</label>
+                                    <input class="ib" [(ngModel)]="user_password" type="password"
+                                        placeholder="Enter Password" name="password" required>
+                                    <div *ngIf="no" class="text-danger mb-1">
+                                        Invalid credintial !
+                                    </div>
+                                    <button queryParamsHandling="merge" class="btn01" type="submit"
+                                        (click)="loginVerification()">Login</button>
+                                </form>
                             </div>
-                            <div class="home-head " style="margin-top: 30px;">
-                                <h1>New Sports</h1>
-                                <h1 style="margin-top: 5px;">collection already</h1>
-                                <h1 style="margin-top: 5px;">on sale</h1>
-                            </div>
-                            <div style="margin-top: 25px;">
-                                <a href="#bestsellers"><button class="home-button"><b>Start Shopping</b></button></a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <div class="ourTeam" id="contactus" style="padding-bottom: 5%;">
-            <div class="row" style="padding-left:5%; padding-right: 5%; margin-top:2%">
-                <div class="col-6" style="text-align: left;">
-                    <p>GET IN TOUCH WITH US AND WE CAN HELP YOU</p>
-                    <h2>Come to us or ask question right now</h2>
-                    <form method="post" enctype="text/plain" action="mailto:someone@example.com"
-                        style="margin-top: 3%;">
-                        <input class="input" placeholder="your name*" required>
-                        <input style="margin-left: 5%;" class="input" placeholder="your last name*" required>
-                        <br>
-                        <input class="input" required placeholder="Email" type="email">
-                        <input style="margin-left: 5%;" class="input" placeholder="Phone">
-                        <br>
-                        <textarea name="message" placeholder="Message"></textarea>
-                        <br>
-                        <button type="submit" style="margin-top: 5%;" class="home-button-2"><b>Send Message</b></button>
-
-                    </form>
-
-                </div>
-
+        <div class="align-items-center pl-5">
+            <div class="row mt-5 pl-5 pr-5">
                 <div class="col-6">
-                    <a href="https://www.google.lk/maps/@7.857685,80.70625,7z"><img src="https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/WHAT-SYSTEM-DOES-A-LIBRARY-USE-min.png"
-                            width="100%"></a>
+                    <div class="row " style="text-align: center;">
+                        <div class="mat-display-4   p-3 text-success">
+                            {{numOfUsers}} <span class="mat-display-2 "> Users</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row" style="text-align: center;">
+                        <div class="mat-display-4   p-3 text-info">
+                            {{numOfLibraries}} <span class="mat-display-2 "> Libraries</span>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- TEMPLATE FOR EXTERNAL USER -->
+        <div id="createaccount" class="center ml-5 mr-5 pl-5 pr-5 mb-5">
+            <ng-container *ngIf="showexCreate; then exUserCreate else exUserSuccess">
+            </ng-container>
+        </div>
 
 
-        <div class="ourTeam" id="contactus" style="padding-bottom: 5%;">
-            <div class="row" style="padding-left:5%; padding-right: 5%; margin-top:2%">
-                <div class="col-6" style="text-align: left;">
-                    <p>GET IN TOUCH WITH US AND WE CAN HELP YOU</p>
-                    <h2>Come to us or ask question right now</h2>
-                    <form method="post" enctype="text/plain" action="mailto:someone@example.com"
-                        style="margin-top: 3%;">
-                        <input class="input" placeholder="your name*" required>
-                        <input style="margin-left: 5%;" class="input" placeholder="your last name*" required>
-                        <br>
-                        <input class="input" required placeholder="Email" type="email">
-                        <input style="margin-left: 5%;" class="input" placeholder="Phone">
-                        <br>
-                        <textarea name="message" placeholder="Message"></textarea>
-                        <br>
-                        <button type="submit" style="margin-top: 5%;" class="home-button-2"><b>Send Message</b></button>
+        <!-- TEMPLATE FOR LIBRARY USER -->
+        <div id="addlibrary" class="center ml-5 mr-5 mb-5 pb-5 pl-5 pr-5">
+            <ng-container *ngIf="!submitted;then login else com">
+            </ng-container>
+        </div>
 
-                    </form>
+        <!-- EXTERNAL USER LOGIN FORM -->
+        <ng-template #exUserCreate>
+            <div class="ourTeam" id="contactus" style="padding-bottom: 5%;">
+                <div class="row" style="padding-left:5%; padding-right: 5%; margin-top:2%">
+                    <div class="col-6" style="text-align: left;">
+                        <p>CREATE YOUR ACCOUNT</p>
+                        <h2>ONE LIB</h2>
+                        <form #exForm="ngForm" style="margin-top: 3%;">
+                            <input class="input" #emailControlle="ngModel" placeholder="Email" required name="userEmail"
+                                [(ngModel)]="exUserModel.email">
+                            <br>
+                            <small class="text-secondary"
+                                *ngIf=" emailControlle.errors?.required && emailControlle.touched">email is
+                                required</small>
+                            <small class="text-secondary"
+                                *ngIf=" emailControlle.errors?.email && emailControlle.touched">Invalid email
+                                address</small>
+                            <br>
+                            <input class="input" placeholder="Password" #passwordController="ngModel" type="password"
+                                name="userPasswor" [(ngModel)]="exUserModel.password">
+                            <input style="margin-left: 5%;" class="input" required #confirmPasswordController="ngModel"
+                                type="password" name="confirmPassword" [(ngModel)]="confirm_password"
+                                placeholder="Confirm Password">
 
-                </div>
+                            <br>
+                            <small class="text-secondary"
+                                *ngIf="confirmPasswordController.invalid && confirmPasswordController.touched">
+                                password is required
+                            </small>
+                            <br>
 
-                <div class="col-6">
-                    <a href="https://www.google.lk/maps/@7.857685,80.70625,7z"><img src="https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/BEST-LIBRARY-AUTOMATION-SOFTWARE-min.png"
-                            width="100%"></a>
+
+                            <button style="margin-top: 5%;" (click)="createExternalUser()" [disabled]="exForm.invalid"
+                                class="home-button-2">Create Account</button>
+
+                        </form>
+
+                    </div>
+
+                    <div class="col-6">
+                        <a href="https://www.google.lk/maps/@7.857685,80.70625,7z"><img
+                                src="https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/WHAT-SYSTEM-DOES-A-LIBRARY-USE-min.png"
+                                width="100%"></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </ng-template>
 
-<footer style="text-align: center;">
-    <div style="padding: 20px; color: white; background-color: #365C9A;">
-        Copyright &copy 2020 - Sneakers Store - All Right Reserved
-    </div>
 
-</footer>
+        <!-- EXTERNAL LOGIN SUCCESS FORM -->
+        <ng-template #exUserSuccess>
+            <div class="ourTeam" id="contactus" style="padding-bottom: 5%;">
+                <div class="row" style="padding-left:5%; padding-right: 5%; margin-top:2%">
+                    <div class="col-6" style="text-align: left;">
+                        <p>THANK FOR JOINING WITH US</p>
+                        <h2>ONE LIB</h2>
+                        <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, dolor aliquid? Ea est odio
+                            similique reiciendis
+                            saepe eius, accusamus velit ab eaque officia ipsa, asperiores nemo adipisci unde. Ut,
+                            assumenda.</P>
+                        <button type="submit" style="margin-top: 5%;" class="home-button-2">Login</button>
+
+                    </div>
+
+                    <div class="col-6">
+                        <a href="https://www.google.lk/maps/@7.857685,80.70625,7z"><img
+                                src="https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/WHAT-SYSTEM-DOES-A-LIBRARY-USE-min.png"
+                                width="100%"></a>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+
+        <ng-template #login>
+            <div class="ourTeam" id="contactus" style="padding-bottom: 5%;">
+                <div class="row" style="padding-left:5%; padding-right: 5%; margin-top:2%">
+                    <div class="col-6" style="text-align: left;">
+                        <p>GET IN TOUCH WITH US</p>
+                        <h2>ONE LIB</h2>
+                        <form class="form" #logForm="ngForm" style="margin-top: 3%;" novalidate>
+                            <div class="form-group">
+                                <input placeholder="Enter Your Name : " required name="name" id="nameid" class="input2"
+                                    [(ngModel)]="model.name" #name01="ngModel">
+                                <div>
+                                    <small class="text-danger" *ngIf="name01.touched && name01.invalid">User name is
+                                        required*</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <input placeholder="Enter Your Email : " required name="email" class="input2"
+                                        type="email" #emailCOntroller="ngModel" [(ngModel)]="model.id">
+                                </div>
+                                <small *ngIf="emailCOntroller.touched && emailCOntroller.invalid"
+                                    class="text-danger">Email is required*</small>
+                            </div>
+
+                            <!-- <div class="form-group">
+                                <label><b class="text-primary">Select Gender</b></label>
+                                <div class="form-control">
+                                  <label  class="inline">
+                                    <input required type="radio" value="male" #gender="ngModel" name="gender" [(ngModel)]="model.gender"> male
+                                  </label>
+                                  <label  class="inline ml-4">
+                                    <input required type="radio" value="female" #gender="ngModel" name="gender" [(ngModel)]="model.gender"> female
+                                  </label>
+                                </div>
+                              </div> -->
+
+                            <div class="form-group">
+                                <input placeholder="Enter Your nic : " required name="nic" id="nameid" class="input2"
+                                    [(ngModel)]="model.nic" #nic="ngModel">
+                                <div>
+                                    <small *ngIf="nic.invalid && nic.touched" class="text-danger">NIC is
+                                        required*</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <input placeholder="Enter Your mobile number :" required name="mob" id="nameid"
+                                    class="input2" [(ngModel)]="model.mnumber" #mobile="ngModel">
+                                <div>
+                                    <small *ngIf="mobile.invalid && mobile.touched" class="text-danger">Mobile number is
+                                        required*</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input required name="add" id="nameid" class="input2"
+                                    placeholder="Enter library address :" [(ngModel)]="model.address" #add="ngModel">
+                                <div>
+                                    <small *ngIf="add.invalid && add.touched" class="text-danger">Address is
+                                        required*</small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input required name="lname" id="nameid" class="input2"
+                                    placeholder="Enter Library Name :" [(ngModel)]="libraryName" #lname="ngModel">
+                                <div>
+                                    <small class="text-danger" *ngIf="lname.invalid && lname.touched">Library name is
+                                        required*</small>
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group">
+                                <label class="text-primary">
+                                  Select library type :
+                                </label>
+                                <select class="form-control" name="selected">
+                                  <option class="p-3" value="Public">
+                                    Public
+                                  </option>
+                                  <option value="Private">
+                                    Private
+                                  </option>
+                                </select>
+                              </div> -->
+
+                            <div>
+                                <button style="margin-top: 5%;" (click)="onSubmit()" [disabled]="logForm.invalid"
+                                    class="home-button-2">Add Library</button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <div class="col-6">
+                        <a href="https://www.google.lk/maps/@7.857685,80.70625,7z"><img
+                                src="https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/BEST-LIBRARY-AUTOMATION-SOFTWARE-min.png"
+                                width="100%"></a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </ng-template>
+
+
+
+        <ng-template #com>
+            <div style="padding-left:5%; padding-right: 5%; margin-top:2%">
+                <div class="card-header">
+                    <h1 class="text-success">Your library added <b>one LIB</b> to <b>successfully !</b></h1>
+                </div>
+                <div class="card-body text-success">
+                    <div class="mb-2">
+                        <div class="form-group">
+                            <label><b>User Id</b></label>
+                            <div class="form-control">
+                                <label>{{model.id}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <div class="form-group">
+                            <label><b>Email address</b></label>
+                            <div class="form-control">
+                                <label>{{model.address}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <div class="form-group">
+                            <label><b>Password</b></label>
+                            <div class="form-control">
+                                <label>{{model.password}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <div class="form-group">
+                            <label><b>Mobile number</b></label>
+                            <div class="form-control">
+                                <label>{{model.mnumber}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <div class="form-group">
+                            <label><b>NIC</b></label>
+                            <div class="form-control">
+                                <label>{{model.nic}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <div class="form-group">
+                            <label><b>Address</b></label>
+                            <div class="form-control">
+                                <label>{{model.address}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+
+        <footer style="text-align: center;">
+            <div style="padding: 20px; color: white; background-color: #365C9A;">
+                Copyright &copy;  2021 - <b>E L E N I N E</b> - All Right Reserved
+            </div>
+
+        </footer>
